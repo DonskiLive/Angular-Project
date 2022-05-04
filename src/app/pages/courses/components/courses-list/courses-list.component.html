@@ -1,0 +1,36 @@
+<ng-container *ngFor="let course of courses; let i = index">
+	<mat-card class="course-card" *ngIf="preShowNumber > i || loadMore">
+		<div class="card-container">
+			<div class="card-header">
+				<mat-card-title class="card-title">{{course.title}}</mat-card-title>
+				<mat-card-subtitle class="card-subtitle">
+					<mat-icon>access_time</mat-icon>
+					<span>{{course.duration | m2h}}</span>
+					<mat-icon>calendar_today</mat-icon>
+					<span>{{course.creationDate | date}}</span>
+				</mat-card-subtitle>
+			</div>
+			<mat-card-content class="card-content">
+				<p>
+					{{course.description}}
+				</p>
+			</mat-card-content>
+		</div>
+		<mat-card-actions class="card-actions">
+			<button (click)="openCourseEdit(course.id)">
+				<mat-icon>edit</mat-icon>Edit
+			</button>
+			<button>
+				<mat-icon>delete</mat-icon>Delete
+			</button>
+		</mat-card-actions>
+	</mat-card>
+</ng-container>
+
+<div *ngIf="courses.length > preShowNumber">
+	<mat-card class="course-card">
+		<button class="load-more-btn" (click)="loadMoreToggle()">
+			{{loadMore ? 'Show first ' + preShowNumber : 'Load More'}}
+		</button>
+	</mat-card>
+</div>
