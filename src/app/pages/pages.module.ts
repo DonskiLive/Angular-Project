@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { CoursesModule } from './courses/courses.module';
-import { CourseDetailComponent } from './course-detail/course-detail.component';
+import { EditCourseComponent } from './edit-course/edit-course.component';
 
 @NgModule({
-  declarations: [HomeComponent, CourseDetailComponent],
+  declarations: [HomeComponent, EditCourseComponent],
   imports: [
     CommonModule,
     CoursesModule,
   ],
   exports: [
-    HomeComponent, CourseDetailComponent,
+    HomeComponent, EditCourseComponent,
   ]
 })
 export class PagesModule { }
